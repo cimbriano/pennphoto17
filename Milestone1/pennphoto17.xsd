@@ -7,6 +7,10 @@
 			<selector xpath="user" />
 			<field xpath="id" />
 		</key>
+		<keyref name="circleUserRef" refer="tns:userId">
+					<selector xpath="user/circle" />
+					<field xpath="friend_id" />
+			</keyref>
 	</element>
 	
 	<complexType name="photodbType">
@@ -48,11 +52,6 @@
 
 			<element name="circle" type="tns:circleType" maxOccurs="unbounded"
 				minOccurs="0">
-				
-			<keyref name="circleUserRef" refer="tns:userId">
-					<selector xpath="friend_id" />
-					<field xpath="friend_id" />
-			</keyref>
 				
 			</element>
 		</sequence>
