@@ -1,74 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pp:photodb xmlns:pp="pennphoto17ns"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="pennphoto17ns http://algorithmm.com/pennphoto17.xsd">
-	<pp:user>
-		<pp:id>1</pp:id>
-		<pp:email>a@id.com</pp:email>
-		<pp:first_name>Alice</pp:first_name>
-		<pp:last_name>InWonderland</pp:last_name>
-		<pp:dob>1986-07-19</pp:dob>
-		<pp:street_address>29 Forest Rd</pp:street_address>
-		<pp:city>Cedar Grove</pp:city>
-		<pp:state>NJ</pp:state>
-		<pp:zip_code>07009</pp:zip_code>
-		<pp:is_professor>false</pp:is_professor>
-		<pp:gender>F</pp:gender>
+<photodb xmlns="pennphoto17ns">
+	<user>
+		<id>1</id>
+		<email>a@id.com</email>
+		<first_name>Alice</first_name>
+		<last_name>InWonderland</last_name>
+		<dob>1986-07-19</dob>
+		<street_address>29 Forest Rd</street_address>
+		<city>Cedar Grove</city>
+		<state>NJ</state>
+		<zip_code>07009</zip_code>
+		<is_professor>false</is_professor>
+		<gender>F</gender>
 		
 
-		<pp:interest>Apple</pp:interest>
-		<pp:interest>Bacon</pp:interest>
-		<pp:interest>Dishwasher</pp:interest>
+		<interest>Apple</interest>
+		<interest>Bacon</interest>
+		<interest>Dishwasher</interest>
 		
-		<pp:attended>
-			<pp:name>Upenn</pp:name>
-			<pp:start_year>2010</pp:start_year>
-			<pp:end_year>2012</pp:end_year>
-		</pp:attended>
+		<attended>
+			<name>Upenn</name>
+			<start_year>2010</start_year>
+			<end_year>2012</end_year>
+		</attended>
 
-		<pp:attended>
-			<pp:name>Bucknell</pp:name>
-			<pp:start_year>2004</pp:start_year>
-			<pp:end_year>2008</pp:end_year>
-		</pp:attended>
+		<attended>
+			<name>Bucknell</name>
+			<start_year>2004</start_year>
+			<end_year>2008</end_year>
+		</attended>
 		
-		<pp:photo>
-			<pp:id>1</pp:id>
-			<pp:url>http://i.imgur.com/l2IYD.jpg</pp:url>
-			<pp:is_private>true</pp:is_private>
-			<pp:upload_date>2001-10-26T21:32:52</pp:upload_date>
+		<photo>
+			<id>1</id>
+			<url>http://i.imgur.com/l2IYD.jpg</url>
+			<is_private>true</is_private>
+			<upload_date>2001-10-26T21:32:52</upload_date>
 			
 			
-			<pp:rating>
-				<pp:user_id>1</pp:user_id>
-				<pp:value>1</pp:value>
-			</pp:rating>
+			<rating>
+				<user_id>1</user_id>
+				<value>1</value>
+			</rating>
 			
-			<pp:tag>
-				<pp:user_id>1</pp:user_id>
-				<pp:tag_text>Awesome</pp:tag_text>
-			</pp:tag>
+			<tag>
+				<user_id>1</user_id>
+				<tag_text>Awesome</tag_text>
+			</tag>
 			
-		</pp:photo>
+		</photo>
 		
 				
-		<pp:circle>
-			<pp:name>Friends</pp:name>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-		</pp:circle>
+		<circle>
+			<name>Friends</name>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+		</circle>
 		
-		<pp:circle>
-			<pp:name>Other Friends</pp:name>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-			<pp:friend_id>1</pp:friend_id>
-		</pp:circle>
+		<circle>
+			<name>Other Friends</name>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+		</circle>
 		
 
-	</pp:user>
+	</user>
 		
-</pp:photodb>
+</photodb>
