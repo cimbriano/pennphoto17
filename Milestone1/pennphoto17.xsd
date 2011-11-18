@@ -49,10 +49,10 @@
 			<element name="circle" type="tns:circleType" maxOccurs="unbounded"
 				minOccurs="0">
 				
-			<!--	<keyref name="circleUserRef" refer="tns:userId">
+			<keyref name="circleUserRef" refer="tns:userId">
 					<selector xpath="friend_id" />
 					<field xpath="friend_id" />
-				</keyref> -->
+			</keyref>
 				
 			</element>
 		</sequence>
