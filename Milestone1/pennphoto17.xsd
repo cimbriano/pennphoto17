@@ -31,7 +31,7 @@
 			<element name="circle" type="tns:circleType" maxOccurs="unbounded"
 				minOccurs="0">
 				<keyref name="circleUserRef" refer="tns:userId">
-					<selector xpath="containsFriend" />
+					<selector xpath="friend_id" />
 					<field xpath="./text()" />
 				</keyref>
 			</element>
@@ -44,7 +44,7 @@
 				<sequence>
 					<element name="major" type="string"></element>
 					<element name="GPA" type="float"></element>
-					<element name="advisor" type="int" maxOccurs="1" minOccurs="0"></element>
+					<element name="advisor_id" type="int"></element>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -57,7 +57,7 @@
 					<element name="researchArea" type="string"></element>
 					<element name="title" type="string"></element>
 					<sequence maxOccurs="unbounded" minOccurs="0">
-						<element name="advises" type="int"></element>
+						<element name="advisee_id" type="int"></element>
 					</sequence>
 				</sequence>
 			</extension>
@@ -85,28 +85,30 @@
 
 			<element name="tag" type="tns:tagType" maxOccurs="unbounded"
 				minOccurs="0"></element>
+                        
+                        <element name="visible_to" type="tns:visibleToType" maxOccurs="1"
+                                minOccurs="0"></element>
 		</sequence>
 	</complexType>
 
 	<complexType name="ratingType">
 		<sequence>
 			<element name="user_id" type="int"></element>
-			<element name="score" type="float"></element>
+			<element name="rating" type="int"></element>
 		</sequence>
 	</complexType>
 	
 		<complexType name="tagType">
 		<sequence>
 			<element name="user_id" type="int"></element>
-			<element name="tag" type="float"></element>
+			<element name="tag" type="string"></element>
 		</sequence>
 	</complexType>
-
 
 	<complexType name="circleType">
 		<sequence>
 			<element name="name" type="string"></element>
-			<element name="containsFriend" type="int" maxOccurs="unbounded"
+			<element name="friend_id" type="int" maxOccurs="unbounded"
 				minOccurs="0"></element>
 		</sequence>
 	</complexType>
@@ -128,4 +130,13 @@
 				minOccurs="0"></element>
 		</sequence>
 	</complexType>
+
+        <complexType name="visibleToType">
+                <sequence>
+                        <element name="circle_id" type="int" maxOccurs="unbounded"
+                                minOccurs="0"></element>                        
+                        <element name="user_id" type="int" maxOccurs="unbounded"
+                                minOccurs="0"></element>
+                </sequence>
+        </complexType>
 </schema>
