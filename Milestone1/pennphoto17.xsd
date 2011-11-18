@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/pennphoto"
-	xmlns:tns="http://www.example.org/pennphoto" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="pennphoto17ns"
+	xmlns:tns="pennphoto17ns" elementFormDefault="qualified" >
+	
+	<element name="photodb" type="tns:photodbType">
+		<key name="userId">
+			<selector xpath="user" />
+			<field xpath="id" />
+		</key>
+	</element>
+	
+	<complexType name="photodbType">
+		<sequence>
+			<element ref="tns:user" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<element name="user" type="tns:userType"></element>
+	<element name="student" type="tns:studentType" substitutionGroup="tns:user"></element>
+	<element name="professor" type="tns:professorType" substitutionGroup="tns:user"></element>
 
 	<complexType name="userType">
 		<sequence>
@@ -11,7 +29,7 @@
 			<element name="dob" type="date"></element>
 			<element name="street_address" type="string"></element>
 			<element name="city" type="string"></element>
-			<element name="state_id" type="string"></element>
+			<element name="state" type="string"></element>
 			<element name="zip_code" type="string"></element>
 			<element name="is_professor" type="boolean"></element>
 			<element name="gender" type="string"></element>
@@ -30,10 +48,12 @@
 
 			<element name="circle" type="tns:circleType" maxOccurs="unbounded"
 				minOccurs="0">
-				<keyref name="circleUserRef" refer="tns:userId">
+				
+			<!--	<keyref name="circleUserRef" refer="tns:userId">
 					<selector xpath="friend_id" />
-					<field xpath="./text()" />
-				</keyref>
+					<field xpath="friend_id" />
+				</keyref> -->
+				
 			</element>
 		</sequence>
 	</complexType>
@@ -94,14 +114,14 @@
 	<complexType name="ratingType">
 		<sequence>
 			<element name="user_id" type="int"></element>
-			<element name="rating" type="int"></element>
+			<element name="value" type="int"></element>
 		</sequence>
 	</complexType>
 	
 		<complexType name="tagType">
 		<sequence>
 			<element name="user_id" type="int"></element>
-			<element name="tag" type="string"></element>
+			<element name="tag_text" type="string"></element>
 		</sequence>
 	</complexType>
 
@@ -113,30 +133,12 @@
 		</sequence>
 	</complexType>
 
-	<element name="photodb" type="tns:photodbType">
-		<key name="userId">
-			<selector xpath="user" />
-			<field xpath="id" />
-		</key>
-	</element>
-
-	<element name="user" type="tns:userType"></element>
-	<element name="student" type="tns:studentType" substitutionGroup="tns:user"></element>
-	<element name="professor" type="tns:professorType" substitutionGroup="tns:user"></element>
-
-	<complexType name="photodbType">
-		<sequence>
-			<element ref="tns:user" maxOccurs="unbounded"
-				minOccurs="0"></element>
-		</sequence>
-	</complexType>
-
-        <complexType name="visibleToType">
-                <sequence>
-                        <element name="circle_id" type="int" maxOccurs="unbounded"
-                                minOccurs="0"></element>                        
-                        <element name="user_id" type="int" maxOccurs="unbounded"
-                                minOccurs="0"></element>
-                </sequence>
-        </complexType>
+  <complexType name="visibleToType">
+    <sequence>
+	    <element name="circle_id" type="int" maxOccurs="unbounded"
+	            minOccurs="0"></element>                        
+	    <element name="user_id" type="int" maxOccurs="unbounded"
+	            minOccurs="0"></element>
+    </sequence>
+  </complexType>
 </schema>
