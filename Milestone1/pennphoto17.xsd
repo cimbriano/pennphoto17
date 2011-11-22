@@ -3,20 +3,78 @@
 	xmlns:tns="pennphoto17ns" elementFormDefault="qualified" >
 	
 	<element name="photodb" type="tns:photodbType">
+		
 		<key name="userId">
 			<selector xpath="user" />
 			<field xpath="id" />
 		</key>
-		<keyref name="circleUserRef" refer="tns:userId">
-					<selector xpath="user/circle" />
-					<field xpath="friend_id" />
-			</keyref>
+		
+		<keyref name="friend_idForeignKeyCircle" refer="tns:userId">
+			<selector xpath="user/circle" />
+			<field xpath="friend_id" />
+		</keyref>
+		
+		<keyref name="friend_idForeignKeyInVisibleTo" refer="tns:userId">
+			<selector xpath="user/photo/visible_to" />
+			<field xpath="friend_id" />
+		</keyref>
+		
+		<keyref name="user_idForeignKeyInTag" refer="tns:userId">
+			<selector xpath="user/photo/tag" />
+			<field xpath="user_id" />
+		</keyref>
+		
+		<keyref name="user_idForeignKeyInRating" refer="tns:userId">
+			<selector xpath="user/photo/rating" />
+			<field xpath="user_id" />
+		</keyref>
+		
+		
+		
+		<key name="studentId">
+			<selector xpath="student" />
+			<field xpath="id" />
+		</key>
+		
+		<keyref name="advisee_idForeignKeyInProfessor" refer="tns:studentId">
+			<selector xpath="professor" />
+			<field xpath="advisee_id" />
+		</keyref>
+		
+		
+		<key name="professorId">
+			<selector xpath="professor" />
+			<field xpath="id" />
+		</key>
+		
+		<keyref name="advisor_idForeignKeyInStudent" refer="tns:professorId">
+			<selector xpath="student" />
+			<field xpath="advisor_id" />
+		</keyref>
+		
+		
+		
+		
+		<key name="circleIdIsKey">
+			<selector xpath="user/circle" />
+			<field xpath="id" />
+		</key>
+		
+		<keyref name="circle_idIsAForeignKey" refer="tns:circleIdIsKey">
+			<selector xpath="user/photo/visible_to" />
+			<field xpath="circle_id" />
+		</keyref>
+		
+		
+	
 	</element>
+	
+
+		
 	
 	<complexType name="photodbType">
 		<sequence>
-			<element ref="tns:user" maxOccurs="unbounded"
-				minOccurs="0"></element>
+			<element ref="tns:user" maxOccurs="unbounded" minOccurs="0"></element>
 		</sequence>
 	</complexType>
 
@@ -24,7 +82,7 @@
 	<element name="student" type="tns:studentType" substitutionGroup="tns:user"></element>
 	<element name="professor" type="tns:professorType" substitutionGroup="tns:user"></element>
 
-	<complexType name="userType">
+	<complexType name="userType" abstract="true">
 		<sequence>
 			<element name="id" type="int"></element>
 			<element name="email" type="string"></element>
@@ -62,7 +120,7 @@
 			<extension base="tns:userType">
 				<sequence>
 					<element name="major" type="string"></element>
-					<element name="GPA" type="float"></element>
+					<element name="gpa" type="float"></element>
 					<element name="advisor_id" type="int"></element>
 				</sequence>
 			</extension>
@@ -105,7 +163,7 @@
 			<element name="tag" type="tns:tagType" maxOccurs="unbounded"
 				minOccurs="0"></element>
                         
-                        <element name="visible_to" type="tns:visibleToType" maxOccurs="1"
+      <element name="visible_to" type="tns:visibleToType" maxOccurs="1"
                                 minOccurs="0"></element>
 		</sequence>
 	</complexType>
@@ -126,6 +184,7 @@
 
 	<complexType name="circleType">
 		<sequence>
+			<element name="id" type="int" ></element>
 			<element name="name" type="string"></element>
 			<element name="friend_id" type="int" maxOccurs="unbounded"
 				minOccurs="0"></element>
