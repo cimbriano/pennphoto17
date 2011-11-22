@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <photodb xmlns="pennphoto17ns">
-	<user>
+	<student>
 		<id>1</id>
 		<email>a@id.com</email>
 		<first_name>Alice</first_name>
@@ -51,6 +51,7 @@
 		
 				
 		<circle>
+			<id>1</id>
 			<name>Friends</name>
 			<friend_id>1</friend_id>
 			<friend_id>1</friend_id>
@@ -59,6 +60,7 @@
 		</circle>
 		
 		<circle>
+			<id>2</id>
 			<name>Other Friends</name>
 			<friend_id>1</friend_id>
 			<friend_id>1</friend_id>
@@ -66,7 +68,85 @@
 			<friend_id>1</friend_id>
 		</circle>
 		
+		<major>Broadcasting</major>
+		<gpa>3</gpa>
+		<advisor_id>1</advisor_id>
+	</student>
+	
+	<professor>
+		<id>1</id>
+		<email>a@id.com</email>
+		<first_name>Alice</first_name>
+		<last_name>InWonderland</last_name>
+		<dob>1986-07-19</dob>
+		<street_address>29 Forest Rd</street_address>
+		<city>Cedar Grove</city>
+		<state>NJ</state>
+		<zip_code>07009</zip_code>
+		<is_professor>false</is_professor>
+		<gender>F</gender>
+		
 
-	</user>
+		<interest>Apple</interest>
+		<interest>Bacon</interest>
+		<interest>Dishwasher</interest>
+		
+		<attended>
+			<name>Upenn</name>
+			<start_year>2010</start_year>
+			<end_year>2012</end_year>
+		</attended>
+
+		<attended>
+			<name>Bucknell</name>
+			<start_year>2004</start_year>
+			<end_year>2008</end_year>
+		</attended>
+		
+		<photo>
+			<id>1</id>
+			<url>http://i.imgur.com/l2IYD.jpg</url>
+			<is_private>true</is_private>
+			<upload_date>2001-10-26T21:32:52</upload_date>
+			
+			
+			<rating>
+				<user_id>1</user_id>
+				<value>1</value>
+			</rating>
+			
+			<tag>
+				<user_id>1</user_id>
+				<tag_text>Awesome</tag_text>
+			</tag>
+			
+		</photo>
+		
+				
+		<circle>
+			<id>1</id>
+			<name>Friends</name>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+		</circle>
+		
+		<circle>
+			<id>2</id>
+			<name>Other Friends</name>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+			<friend_id>1</friend_id>
+		</circle>
+		
+		<researchArea>Database</researchArea>
+		<title>Professor Emeritus</title>
+		<advisee_id>1</advisee_id>
+		<advisee_id>2</advisee_id>
+		<advisee_id>3</advisee_id>
+
+	</professor>
 		
 </photodb>
