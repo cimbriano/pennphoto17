@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<photodb xmlns="pennphoto17ns">
+<photodb xmlns="pennphoto17ns" >
 	<student>
 		<id>1</id>
 		<email>a@id.com</email>
