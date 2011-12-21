@@ -6,6 +6,21 @@ CREATE SCHEMA IF NOT EXISTS `imbriano` ;
 USE `imbriano` ;
 
 -- -----------------------------------------------------
+-- Table `imbriano`.`State`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `imbriano`.`State` ;
+
+CREATE  TABLE IF NOT EXISTS `imbriano`.`State` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NOT NULL ,
+  `abbreviation` VARCHAR(2) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `name_UNIQUE` ON `imbriano`.`State` (`name` ASC) ;
+
+
+-- -----------------------------------------------------
 -- Table `imbriano`.`User`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `imbriano`.`User` ;
@@ -20,13 +35,20 @@ CREATE  TABLE IF NOT EXISTS `imbriano`.`User` (
   `street_address` VARCHAR(45) NULL ,
   `city` VARCHAR(45) NULL ,
   `state_id` INT NULL ,
-  `zip_code` INT NULL ,
+  `zip_code` VARCHAR(10) NULL ,
   `is_professor` TINYINT(1)  NOT NULL DEFAULT False ,
   `gender` CHAR(1)  NULL ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`) ,
+  CONSTRAINT `fk_user_state`
+    FOREIGN KEY (`state_id` )
+    REFERENCES `imbriano`.`State` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `userName_UNIQUE` ON `imbriano`.`User` (`email` ASC) ;
+
+CREATE INDEX `fk_user_state` ON `imbriano`.`User` (`state_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -270,6 +292,7 @@ CREATE  TABLE IF NOT EXISTS `imbriano`.`Tag` (
   `photo_id` INT NOT NULL ,
   `user_id` INT NOT NULL ,
   `tag` VARCHAR(45) NOT NULL ,
+  `tag_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   CONSTRAINT `fk_tag_photo`
     FOREIGN KEY (`photo_id` )
     REFERENCES `imbriano`.`Photo` (`id` )
